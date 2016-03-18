@@ -1,0 +1,9 @@
+bin/
+build/
+.classpath
+.gradle
+.project
+.settings
+.idea/
+*.iml
+docker-data/shibboleth/shibboleth-idp/war/

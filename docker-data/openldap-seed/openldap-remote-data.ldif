@@ -1,0 +1,19 @@
+dn: ou=groups,dc=remote,dc=tsers,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=people,dc=remote,dc=tsers,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: uid=sylvester,ou=people,dc=remote,dc=tsers,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Sylvester Stallone
+sn: Stallone
+uid: sylvester
+userPassword: sylvester

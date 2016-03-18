@@ -1,0 +1,42 @@
+version: '2'
+services:
+  mysql:
+   image: mysql:5.7
+   volumes:
+     - ./docker-data/mysql:/docker-entrypoint-initdb.d
+   ports:
+    - "13307:3306"
+   environment:
+     MYSQL_ROOT_PASSWORD: root
+  openldap:
+    image: osixia/openldap:1.1.1
+    ports:
+    - "1636:636"
+    - "1389:389"
+    environment:
+      LDAP_ORGANISATION: "tsers organization"
+      LDAP_DOMAIN: "tsers.org"
+      LDAP_ADMIN_PASSWORD: "admin"
+  openldap-remote:
+    image: osixia/openldap:1.1.1
+    ports:
+    - "2389:389"
+    environment:
+      LDAP_ORGANISATION: "tsers remote organization"
+      LDAP_DOMAIN: "remote.tsers.org"
+      LDAP_ADMIN_PASSWORD: "admin"
+  openldap-seed:
+    image: osixia/openldap:1.1.1
+    volumes:
+      - ./docker-data/openldap-seed:/ldif_files
+    links:
+      - openldap
+    entrypoint: '/ldif_files/importData.sh'
+  shibboleth2:
+    build:
+      context: ./docker-data/shibboleth
+      dockerfile: Dockerfile
+    ports:
+    - "8443:8443"
+    links:
+      - openldap

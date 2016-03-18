@@ -1,0 +1,165 @@
+.login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+
+.bold  {
+    font-weight: bold;
+}
+
+.content-page {
+    position: relative;
+    z-index: 1;
+    background: #8B7C92;
+    width: 360px;
+    margin: 0 auto 50px;
+    padding: 10px;
+    text-align: center;
+}
+
+.users-page {
+    position: relative;
+    z-index: 1;
+    background: #8B7C92;
+    width: 360px;
+    margin: 0 auto 50px;
+    padding: 0px;
+}
+
+
+.users-page table {
+    padding: 10px;
+}
+
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #8B7C92;
+    max-width: 360px;
+    margin: 0 auto 50px;
+    padding: 45px;
+    text-align: center;
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #A7A284;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.submit {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #A7A284;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: wheat;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.submit:active, .submit:hover, .submit:focus {
+    background: #745B5E;
+}
+
+.form .message {
+    margin: 15px 0 0;
+    color: #745B5E;
+    font-size: 12px;
+}
+
+.form .message a {
+    color: #433E0E;
+    text-decoration: none;
+}
+
+.form .message:hover a {
+    color: wheat;
+    text-decoration: none;
+}
+
+.form .register-form {
+    display: none;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.container:before, .container:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container .info {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.container .info h1 {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 36px;
+    font-weight: 300;
+    color: #745B5E;
+}
+
+.container .info span {
+    color: #7C9082;
+    font-size: 12px;
+}
+
+.container .info span a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.container .info span .fa {
+    color: #A7A284;
+}
+
+.users-header {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+body {
+    background: #8F92BA;
+    font-family: "Roboto", sans-serif;
+}
+
+/* do not group these rules */
+*::-webkit-input-placeholder {
+    color: wheat;
+}
+
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: wheat;
+}
+
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: wheat;
+}
+
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: wheat;
+}

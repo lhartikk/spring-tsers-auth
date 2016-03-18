@@ -1,0 +1,19 @@
+dn: ou=groups,dc=tsers,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=people,dc=tsers,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: uid=arnold,ou=people,dc=tsers,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Arnold Schwarzenegger
+sn: Schwarzenegger
+uid: arnold
+userPassword: arnold

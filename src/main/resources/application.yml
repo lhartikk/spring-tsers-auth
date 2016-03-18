@@ -1,0 +1,20 @@
+server:
+  port: 9001
+  ssl:
+    key-store: classpath:sample.jks
+    key-store-password: secret
+    key-password: password
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:13307/tsers
+    username: root
+    password: root
+  devtools:
+    remote:
+      secret: mysecret
+
+openldap:
+  url: ldap://localhost:1389/dc=tsers,dc=org
+  usernameDN: cn=admin,dc=tsers,dc=org
+  password: admin

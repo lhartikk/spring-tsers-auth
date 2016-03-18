@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="
+          http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      parent="cas.abstract">
+
+    <on-start>
+        <set name="flowScope.casProtocolErrorView" value="'proxyFailure'" />
+    </on-start>
+
+    <action-state id="InitializeProxy">
+        <evaluate expression="InitializeProfileRequestContext"/>
+        <evaluate expression="InitializeProxy" />
+        <evaluate expression="BuildRelyingPartyContext" />
+        <evaluate expression="BuildSAMLMetadataContext" />
+        <evaluate expression="SelectRelyingPartyConfiguration" />
+        <evaluate expression="SelectProfileConfiguration" />
+        <evaluate expression="PublishProtocolRequest" />
+        <evaluate expression="'proceed'" />
+        <transition on="proceed" to="ValidateIdPSession" />
+    </action-state>
+
+    <action-state id="ValidateIdPSession">
+        <evaluate expression="ValidateIdPSession" />
+        <evaluate expression="'proceed'" />
+        <transition on="proceed" to="GrantProxyTicket" />
+    </action-state>
+
+    <action-state id="GrantProxyTicket">
+        <evaluate expression="GrantProxyTicket" />
+        <evaluate expression="'proceed'" />
+        <transition on="proceed" to="ProxySuccess" />
+    </action-state>
+
+    <!-- View end states -->
+    <end-state id="ProxySuccess" view="cas/proxySuccess">
+        <on-entry>
+            <evaluate expression="PopulateAuditContext" />
+            <evaluate expression="WriteAuditLog" />
+            <evaluate expression="PublishProtocolResponse" />
+            <set name="flashScope.escapeUtils" value="T(org.apache.commons.lang.StringEscapeUtils)" />
+        </on-entry>
+    </end-state>
+
+    <bean-import resource="proxy-beans.xml" />
+
+</flow>

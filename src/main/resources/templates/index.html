@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Ultimate Spring Boot auth!</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" action="/authenticate" method="post">
+            <input type="text" name="username" placeholder="username"/>
+            <input type="password" name="password" placeholder="password"/>
+            <input class="submit" type="submit" value="submit" />
+            <p class="message">Or: <a th:href="@{/saml/login}">Login with Shibboleth</a></p>
+        </form>
+    </div>
+</div>
+<div class="users-page">
+    <h3 class="users-header">Test users</h3>
+<table>
+    <tr class="bold"><td>username</td><td>password</td><td>type</td></tr>
+    <tr><td>user</td><td>user</td><td>mysql</td></tr>
+    <tr><td>arnold</td><td>arnold</td><td>ldap</td></tr>
+    <tr><td>sylvester</td><td>sylvester</td><td>shibboleth</td></tr>
+</table>
+</div>
+</body>
+</html>

@@ -13,6 +13,10 @@ docker-compose up -d
 ./gradlew bootRun
 ```
 
+
+[Original Blogpost](https://medium.com/@lhartikk/spring-boot-authentication-with-mysql-openldap-and-shibboleth-dockerized-be9d195cdc99#.vchnr8euu)
+
+
 Inspired by:
 
 * https://github.com/vdenotaris/spring-boot-security-saml-sample

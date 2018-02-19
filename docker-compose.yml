@@ -9,7 +9,7 @@ services:
    environment:
      MYSQL_ROOT_PASSWORD: root
   openldap:
-    image: osixia/openldap:1.1.1
+    image: osixia/openldap:1.1.11
     ports:
     - "1636:636"
     - "1389:389"
@@ -18,7 +18,7 @@ services:
       LDAP_DOMAIN: "tsers.org"
       LDAP_ADMIN_PASSWORD: "admin"
   openldap-remote:
-    image: osixia/openldap:1.1.1
+    image: osixia/openldap:1.1.11
     ports:
     - "2389:389"
     environment:
@@ -26,7 +26,7 @@ services:
       LDAP_DOMAIN: "remote.tsers.org"
       LDAP_ADMIN_PASSWORD: "admin"
   openldap-seed:
-    image: osixia/openldap:1.1.1
+    image: osixia/openldap:1.1.11
     volumes:
       - ./docker-data/openldap-seed:/ldif_files
     links:
